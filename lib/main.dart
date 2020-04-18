@@ -30,7 +30,7 @@ class _RegisterPageState extends State<RegisterPage> {
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.only(
-                      top: 40.0, left: 20.0, right: 20.0, bottom: 10.0),
+                      top: 50.0, left: 30.0, right: 30.0, bottom: 10.0),
                   child: Container(
                     child: Text(
                       'Learn to code  by\n watching others',
@@ -45,7 +45,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(
-                      top: 10.0, left: 20.0, right: 20.0, bottom: 10.0),
+                      top: 10.0, left: 30.0, right: 30.0, bottom: 10.0),
                   child: Container(
                     child: Text(
                       'See how experienced developers solve problems in real-time. Watching scripted tutorials is great, but understanding how developers think is invaluable',
@@ -55,16 +55,17 @@ class _RegisterPageState extends State<RegisterPage> {
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.bold,
                           decoration: TextDecoration.none,
-                          color: Colors.white),
+                          color: Colors.white70),
                     ),
                   ),
                 ),
                 Container(
                   padding: const EdgeInsets.only(
-                      left: 3.0, right: 3.0, top: 10.0, bottom: 3.0),
+                      left: 3.0, right: 3.0, top: 10.0, bottom: 20.0),
                   width: double.infinity,
                   child: RaisedButton(
                     onPressed: () {},
+                    elevation: 10,
                     color: HSLColor.fromAHSL(1.0,248, 0.32, 0.49).toColor(),
                     shape: RoundedRectangleBorder(
                       borderRadius: new BorderRadius.circular(10.0),
@@ -106,11 +107,12 @@ class _RegisterPageState extends State<RegisterPage> {
             flex: 1,
             child: Container(
               child: Card(
+                elevation: 10,
                 shape: RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(18.0),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(20.0),
                   child: Column(
                     children: <Widget>[
                       Expanded(
@@ -125,12 +127,12 @@ class _RegisterPageState extends State<RegisterPage> {
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black),
                             decoration: InputDecoration(
-                              contentPadding: EdgeInsets.all(8.0),
-                              border: OutlineInputBorder(
-                                borderRadius: const BorderRadius.all(
-                                  const Radius.circular(10.0),
-                                ),
-                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.grey,
+                                ),),
+                              contentPadding: EdgeInsets.all(16.0),
+
                               labelText: 'First Name',
                             ),
                           ),
@@ -148,12 +150,12 @@ class _RegisterPageState extends State<RegisterPage> {
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black),
                             decoration: InputDecoration(
-                              contentPadding: EdgeInsets.all(8.0),
-                              border: OutlineInputBorder(
-                                borderRadius: const BorderRadius.all(
-                                  const Radius.circular(10.0),
-                                ),
-                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.grey,
+                                ),),
+                              contentPadding: EdgeInsets.all(16.0),
+
                               labelText: 'Last Name',
                             ),
                           ),
@@ -171,12 +173,12 @@ class _RegisterPageState extends State<RegisterPage> {
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black),
                             decoration: InputDecoration(
-                              contentPadding: EdgeInsets.all(8.0),
-                              border: OutlineInputBorder(
-                                borderRadius: const BorderRadius.all(
-                                  const Radius.circular(10.0),
-                                ),
-                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.grey,
+                                ),),
+                              contentPadding: EdgeInsets.all(16.0),
+
                               labelText: 'Email Address',
                             ),
                           ),
@@ -194,12 +196,12 @@ class _RegisterPageState extends State<RegisterPage> {
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black),
                             decoration: InputDecoration(
-                              contentPadding: EdgeInsets.all(8.0),
-                              border: OutlineInputBorder(
-                                borderRadius: const BorderRadius.all(
-                                  const Radius.circular(10.0),
-                                ),
-                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.grey,
+                                ),),
+                              contentPadding: EdgeInsets.all(16.0),
+
                               labelText: 'Password',
                             ),
                           ),
@@ -215,7 +217,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             onPressed: () {},
                             color: HSLColor.fromAHSL(1.0,154, 0.55, 0.51).toColor(),
                             shape: RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(10.0),
+                              borderRadius: new BorderRadius.circular(5.0),
                             ),
                             child: Text(
                               "CLAIM YOUR FREE TRIAL",
@@ -231,24 +233,30 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                       Expanded(
                         flex: 1,
-                        child: RichText(
-                          textAlign: TextAlign.center,
-                          text: TextSpan(
-                            style: TextStyle(
-                                color: Colors.grey,
-                                fontFamily: 'Poppins',
-                                fontSize: 15),
-                            text:
-                                " By clicking the button you are agreeing to \n our",
-                            children: <TextSpan>[
-                              TextSpan(
-                                  text: ' Terms and Services',
-                                  style: TextStyle(
-                                    color: Colors.redAccent,
-                                    fontSize: 15,
-                                    fontFamily: 'Poppins',
-                                  ))
-                            ],
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: RichText(
+                            textAlign: TextAlign.center,
+                            text: TextSpan(
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontFamily: 'Poppins',
+                                  height: 2,
+                                  fontSize: 10),
+                              text:
+                                  " By clicking the button you are agreeing to \n our",
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text: ' Terms and Services',
+                                    style: TextStyle(
+                                      color: Colors.redAccent,
+                                      fontSize: 10,
+
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.bold
+                                    ))
+                              ],
+                            ),
                           ),
                         ),
                       )
