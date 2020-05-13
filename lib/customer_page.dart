@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 class CustomerPage extends StatefulWidget {
@@ -23,7 +24,7 @@ class _CustomerPageState extends State<CustomerPage> {
    print(customerList.length);
    loading=false;
    setState(() {
-     
+
    });
   }
   var customerList=[];
@@ -35,19 +36,40 @@ class _CustomerPageState extends State<CustomerPage> {
   }
    @override
    Widget build(BuildContext context) {
-     final title = 'Long List';
+     final title = 'Customer Details';
 
      return MaterialApp(
        title: title,
        home: Scaffold(
          appBar: AppBar(
            title: Text(title),
+           actions: <Widget>[
+             // action button
+             IconButton(
+               icon:Icon(Icons.refresh),
+               onPressed: () {
+                 getCustomerList(widget.sessionCookie, widget.sessionCookieSig);
+                 setState(() {
+                   
+                 });
+               },
+             ),
+             // action button
+             IconButton(
+               icon: Icon(Icons.exit_to_app),
+               onPressed: () {
+
+               },
+             ),
+           ],
          ),
          body: loading ? Text('Loading...'):ListView.builder(
            itemCount: customerList.length,
            itemBuilder: (context, index) {
              return ListTile(
-               title: Text('${customerList[index]}'),
+               title: Text('Name:${customerList[index]['customerName']}\nPhoneNumber:${customerList[index]['phoneNumber']}'),
+               subtitle: Text('Gender:${customerList[index]['gender']}'),
+               isThreeLine: true,
              );
            },
          ),
