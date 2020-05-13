@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -69,11 +70,6 @@ class _LoginPageState extends State<LoginPage> {
      print("session Cookie=$sessionCookie");
       String sessionCookieSig=extractSessionCookie("session.sig=",response.headers["set-cookie"].toString());
       print("session CookieSig=$sessionCookieSig");
-//      const customerUrl = 'http://10.0.2.2:8000/customers';
-//      headers["cookie"]="$sessionCookie;$sessionCookieSig";
-//      http.Response response2 = await http.get(customerUrl, headers: headers);
-//      var customerList=response2.body; // 200
-//      print(customerList);
       Navigator.push(context,  MaterialPageRoute(
           builder: (context) =>
               CustomerPage(sessionCookie: sessionCookie,sessionCookieSig: sessionCookieSig,)));
@@ -93,12 +89,13 @@ class _LoginPageState extends State<LoginPage> {
       padding: const EdgeInsets.only(
           left: 20.0, right: 20.0, top: 20.0, bottom: 10.0),
       child: Column(
+       mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Expanded(
             flex: 1,
             child: Container(
                 child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
+//              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.only(
@@ -131,6 +128,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Column(
+//                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
                         'LOGIN',
@@ -191,7 +189,6 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ),
-
                       Expanded(
                         flex: 1,
                         child: Container(

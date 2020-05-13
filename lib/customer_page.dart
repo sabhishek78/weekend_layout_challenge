@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:weekend_layout_challenge/main.dart';
 class CustomerPage extends StatefulWidget {
   final String sessionCookie;
   final String sessionCookieSig;
@@ -13,6 +14,19 @@ class CustomerPage extends StatefulWidget {
 
 class _CustomerPageState extends State<CustomerPage> {
 
+  logOutUser(sessionCookie,sessionCookieSig)async{
+    Map<String,String> headers = {'Content-Type':'application/json'};
+    final customerUrl = 'http://10.0.2.2:8000/logout';
+    headers["cookie"]="$sessionCookie;$sessionCookieSig";
+    http.Response response2 = await http.post(customerUrl, headers: headers);
+    print(response2.body);
+    Navigator.push(context,  MaterialPageRoute(
+        builder: (context) =>
+            LoginPage()));
+    setState(() {
+
+    });
+  }
    getCustomerList(sessionCookie,sessionCookieSig)async{
   Map<String,String> headers = {'Content-Type':'application/json'};
   final customerUrl = 'http://10.0.2.2:8000/customers';
@@ -50,7 +64,7 @@ class _CustomerPageState extends State<CustomerPage> {
                onPressed: () {
                  getCustomerList(widget.sessionCookie, widget.sessionCookieSig);
                  setState(() {
-                   
+
                  });
                },
              ),
@@ -58,7 +72,7 @@ class _CustomerPageState extends State<CustomerPage> {
              IconButton(
                icon: Icon(Icons.exit_to_app),
                onPressed: () {
-
+                 logOutUser(widget.sessionCookie, widget.sessionCookieSig);
                },
              ),
            ],
